@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_map/pages/sport.dart';
 import 'package:travel_map/widgets/appbardecoration.dart';
 import 'package:travel_map/widgets/static_variable.dart';
 class rrrr extends StatefulWidget {
@@ -21,9 +22,15 @@ class _rrrrState extends State<rrrr> {
           itemCount: widget.index==0?StaticVariables.TravelBD.length
           :StaticVariables.TravelWorld.length,
           itemBuilder: (context,index){
-            return Card(
-              child: Text( widget.index==0?StaticVariables.TravelBD[index]
-                  :StaticVariables.TravelWorld[index],),
+            return InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                    sp()));
+              },
+              child: Card(
+                child: Text( widget.index==0?StaticVariables.TravelBD[index]
+                    :StaticVariables.TravelWorld[index],style: TextStyle(fontSize: 20),),
+              ),
             );
           }),
     );

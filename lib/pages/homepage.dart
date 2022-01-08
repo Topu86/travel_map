@@ -60,9 +60,15 @@ class _HomePageState extends State<HomePage> {
               return _gridBuilder(index);
             }
         ),
-        SizedBox(height: 30,),
-        Container(),
-        SizedBox(height: 30,),
+        SizedBox(height: 20,),
+        Container(
+
+          height: 150,
+          width: 50,
+          color: Colors.grey,
+          child: Image.asset('assets/f.jpg',width: 100,),
+          ),
+        SizedBox(height: 20,),
         Card(
           color: Colors.white70,
           child: Padding(
@@ -126,10 +132,10 @@ class _HomePageState extends State<HomePage> {
                     : index==4? Icons.face
                     : index==5? Icons.home
                     : Icons.home,
-              size: 25, color: Colors.green,
+              size: 50, color: Colors.green,
             ),
             Text(StaticVariables.HomeData[index],
-              style: TextStyle(color: Colors.green),)
+              style: TextStyle(color: Colors.green,fontSize: 20),)
           ],
         ),
       ),
