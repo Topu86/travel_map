@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:travel_map/data/travel_data.dart';
 import 'package:travel_map/model/tranel_model.dart';
+import 'package:travel_map/pages/spot_details.dart';
 import 'package:travel_map/widgets/appbardecoration.dart';
 class sp extends StatefulWidget {
   const sp({Key? key}) : super(key: key);
+
+
 
   @override
   _spState createState() => _spState();
@@ -18,15 +21,22 @@ class _spState extends State<sp> {
   }
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      appBar: appBarDecoration(context,'index'),
+      // appBar: appBarDecoration(context, '${widget.spotname}'),
         body: _bodyUI(),
     ));
   }
   Widget _bodyUI(){
     return GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 1), itemBuilder: (context,index){
+      crossAxisCount: travelList.length),
+        itemBuilder: (context,index){
       return InkWell(
-        onTap: (){},
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>sportdet(
+            spotname:travelList[index].spotname,
+            timage:travelList[index].timage,
+            tdescription:travelList[index].tdescription,
+
+          )));},
         child: Container(
           margin: EdgeInsets.only(bottom: 15,left: 10, right: 10),
           decoration: BoxDecoration(
@@ -49,17 +59,14 @@ class _spState extends State<sp> {
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15)
                 ),
-                child: Image.asset('assets/f.jpg',
+                child: Image.asset('${travelList[index].timage}',
                 height: 180,
                   fit: BoxFit.cover,
                 ),
               ),
               SizedBox(height: 10,),
-              Text('Gradle dependency',textAlign: TextAlign.left,),
-              Text('	com.google.firebase:firebase-bom'
-               'The latest Firebase BoM version contains the latest versions of each Firebase Android library.'
-                  ' To learn which library versions'
-                  ' are mapped to a specific BoM version, review the release notes for that BoM version',maxLines: 4,textAlign: TextAlign.justify,)
+              Text('${travelList[index].spotname}',textAlign: TextAlign.left,),
+              Text('${travelList[index].tdescription}',maxLines: 4,textAlign: TextAlign.justify,)
               
             ],
           ),

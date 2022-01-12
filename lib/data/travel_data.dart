@@ -5,10 +5,9 @@ List<TravelModel> GetTravel(){
   TravelModel travelModel=TravelModel();
   travelModel.spotname='Gradle dependency';
   travelModel.timage='assets/f.jpg';
-  travelModel.tdescription='	com.google.firebase:firebase-bom'
-      'The latest Firebase BoM version contains the latest versions of each Firebase Android library.'
-      ' To learn which library versions'
-      ' are mapped to a specific BoM version, review the release notes for that BoM version';
+  travelModel.tdescription='	Cox’s Bazar is a town on the southeast coast of Bangladesh. '
+      'It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north'
+      ' to Kolatoli Beach in the south. ';
   list.add(travelModel);
   return list;
 }
